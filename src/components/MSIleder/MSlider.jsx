@@ -7,7 +7,8 @@ function MSlider(props) {
   const [previous, SetPreviousElement] = useState(0);
   const [duration, SetDurationElement] = useState(0);
 
-  const [elements, changeElements] = useState(props.elements);
+  const [elements] = useState(props.elements);
+  const [animationDuration] = useState(props.duration);
   // console.log(val)
   function slideLeft() {
     let _activeElement = activeElement;
@@ -19,6 +20,8 @@ function MSlider(props) {
     SetPreviousElement(activeElement);
     SetDurationElement(0);
     SetActiveElement(_activeElement);
+    if (typeof props.cb === "function")
+      props.cb(elements.length, _activeElement + 1);
   }
   function slideRight() {
     let _activeElement = activeElement;
@@ -28,6 +31,8 @@ function MSlider(props) {
     SetPreviousElement(activeElement);
     SetDurationElement(1);
     SetActiveElement(_activeElement);
+    if (typeof props.cb === "function")
+      props.cb(elements.length, _activeElement + 1);
   }
   return (
     <ul className={classes.MSlider}>
@@ -38,6 +43,7 @@ function MSlider(props) {
       {elements.map((elem, index) => {
         return (
           <li
+            style={{ animationDuration: animationDuration + "s" }}
             className={
               index === activeElement
                 ? duration === 0

@@ -16,7 +16,13 @@ var elements = [
 function App() {
   return (
     <div className="App">
-      <MSlider elements={elements} />
+      <MSlider
+        elements={elements}
+        duration={2}
+        cb={function(a, b) {
+          console.log(a, b);
+        }}
+      />
     </div>
   );
 }
