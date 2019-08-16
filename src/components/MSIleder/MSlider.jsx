@@ -6,11 +6,13 @@ function MSlider(props) {
   const [activeElement, SetActiveElement] = useState(0);
   const [previous, SetPreviousElement] = useState(0);
   const [duration, SetDurationElement] = useState(0);
-
+  const [lastClick, SetlastClickTime] = useState(0);
   const [elements] = useState(props.elements);
   const [animationDuration] = useState(props.duration);
   // console.log(val)
   function slideLeft() {
+    if (+new Date() - 1000 * animationDuration < lastClick) return;
+
     let _activeElement = activeElement;
 
     if (--_activeElement === -1) {
@@ -20,10 +22,12 @@ function MSlider(props) {
     SetPreviousElement(activeElement);
     SetDurationElement(0);
     SetActiveElement(_activeElement);
+    SetlastClickTime(+new Date());
     if (typeof props.cb === "function")
       props.cb(elements.length, _activeElement + 1);
   }
   function slideRight() {
+    if (+new Date() - 1000 * animationDuration < lastClick) return;
     let _activeElement = activeElement;
     if (++_activeElement === elements.length) {
       _activeElement = 0;
@@ -31,6 +35,8 @@ function MSlider(props) {
     SetPreviousElement(activeElement);
     SetDurationElement(1);
     SetActiveElement(_activeElement);
+    SetlastClickTime(+new Date());
+
     if (typeof props.cb === "function")
       props.cb(elements.length, _activeElement + 1);
   }
@@ -45,7 +51,9 @@ function MSlider(props) {
           <li
             style={{ animationDuration: animationDuration + "s" }}
             className={
-              index === activeElement
+              classes.elements +
+              " " +
+              (index === activeElement
                 ? duration === 0
                   ? classes.activeFromLeft
                   : classes.activeFromRight
@@ -53,7 +61,7 @@ function MSlider(props) {
                 ? duration === 0
                   ? classes.previousLeft
                   : classes.previousRight
-                : classes.passive
+                : classes.passive)
             }
             key={index}
           >
