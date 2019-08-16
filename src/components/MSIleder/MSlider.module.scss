@@ -1,0 +1,122 @@
+$animationDuration : 1s;
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box
+}
+.MSlider{
+
+    width: 100%;
+
+    display: flex;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    height:100vh;
+    
+    & li{
+        flex-shrink: 0;
+        list-style: none;
+        width: 100%;
+        background: green;
+        color: #ffffff;
+        font-weight: bold;
+        position: absolute;
+        & img{
+          width: 100%;
+        }
+        &.passive{
+            display: none;
+        }
+        &.activeFromLeft{
+            //display: block;
+            animation: FadeInLeft;
+            animation-duration: $animationDuration;
+            animation-fill-mode: forwards;
+        }
+        &.activeFromRight{
+            //display: block;
+            animation: FadeInRight;
+            animation-duration: $animationDuration;
+            animation-fill-mode: forwards;
+        }
+        &.previousLeft{
+            animation: FadeOutLeft;
+            animation-duration: $animationDuration;
+            animation-fill-mode: forwards;
+            //display: none;
+        }
+        &.previousRight{
+            //display: none;
+            animation: FadeOutRight;
+            animation-duration: $animationDuration;
+            animation-fill-mode: forwards;
+        }
+    }
+    .slideLeft , .slideRight{
+        width: 20px;
+        height: 100%;
+        background: gray;
+        position: absolute;
+        left: 0;
+        z-index: 5;
+        cursor: pointer;
+
+        
+    }
+    .slideRight{
+        left: initial;
+        right: 0;
+    }
+}
+@keyframes FadeOutLeft{
+    0%{
+       opacity: 1;
+       left:-100vh;
+    }
+    100%{
+        opacity: 0;
+        left:0vh;
+        
+    }
+}
+@keyframes FadeOutRight{
+    0%{
+        left: 0;
+        opacity: 1;
+
+    }
+    100%{
+      left: -100vh;
+      opacity: 0;
+
+        
+    }
+}
+@keyframes FadeInLeft{
+    0%{
+      opacity: 0;
+    left: 0;
+  }
+  100%{
+    left: 100vh;
+    opacity: 1;
+      
+  }
+}
+@keyframes FadeInRight{
+    0%{
+        opacity: 0;
+       left: 100vh;
+    }
+    100%{
+      left: 0;
+      opacity: 1;
+        //transform:none
+      //  transform: "none";
+    }
+}
+.slideLeft,.passive, .active{
+      
+}
+.slideRight{}
