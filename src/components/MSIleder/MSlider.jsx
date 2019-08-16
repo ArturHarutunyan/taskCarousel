@@ -57,7 +57,9 @@ function MSlider(props) {
             }
             key={index}
           >
-            <img src={elem} alt="" />
+            <div className={classes.MImageContainer}>
+              <img src={elem} alt="" />
+            </div>
           </li>
         );
       })}
