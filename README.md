@@ -1,2 +1,0 @@
-# taskCarousel
-Created with CodeSandbox
