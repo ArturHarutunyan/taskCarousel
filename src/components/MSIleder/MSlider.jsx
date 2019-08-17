@@ -9,7 +9,7 @@ function MSlider(props) {
   const [lastClick, SetlastClickTime] = useState(0);
   const [elements] = useState(props.elements);
   const [animationDuration] = useState(props.duration);
-  // console.log(val)
+
   function slideLeft() {
     if (+new Date() - 1000 * animationDuration < lastClick) return;
 
@@ -40,9 +40,17 @@ function MSlider(props) {
     if (typeof props.cb === "function")
       props.cb(elements.length, _activeElement + 1);
   }
+
+  if (process.env.NODE_ENV === 'test') {
+      //for testing purposes, only in test environment
+      global.dataForTesting = {
+          activeElement
+      };
+  }
+
   return (
     <ul className={classes.MSlider}>
-      <li onClick={slideLeft} className={classes.slideLeft}>
+      <li onClick={slideLeft} className={classes.slideLeft} data-testid="slideLeftButton">
         {" "}
         {"<"}{" "}
       </li>
@@ -72,7 +80,7 @@ function MSlider(props) {
         );
       })}
 
-      <li onClick={slideRight} className={classes.slideRight}>
+      <li onClick={slideRight} className={classes.slideRight} data-testid="slideRightButton">
         {" "}
         {">"}{" "}
       </li>

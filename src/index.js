@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import "./styles.scss";
 import MSlider from "./components/MSIleder/MSlider";
-var elements = [
+const elements = [
   "https://www.armeniatravel.am/wcit/V.2.0/images/Amberd/Amberd_1.jpg",
   "https://www.armeniatravel.am/wcit/V.2.0/images/Sevan_Dilijan/Sevan.jpg",
   "https://www.armeniatravel.am/wcit/V.2.0/images/Amberd/Amberd_day_4.jpg",

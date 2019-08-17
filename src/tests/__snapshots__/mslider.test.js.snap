@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mslider renders correctly 1`] = `
+<ul>
+  <li
+    data-testid="slideLeftButton"
+    onClick={[Function]}
+  >
+     
+    &lt;
+     
+  </li>
+  <li
+    className="undefined undefined"
+    style={
+      Object {
+        "animationDuration": "2s",
+      }
+    }
+  >
+    <div>
+      <img
+        alt=""
+        src="https://www.armeniatravel.am/wcit/V.2.0/images/Amberd/Amberd_1.jpg"
+      />
+    </div>
+  </li>
+  <li
+    className="undefined undefined"
+    style={
+      Object {
+        "animationDuration": "2s",
+      }
+    }
+  >
+    <div>
+      <img
+        alt=""
+        src="https://www.armeniatravel.am/wcit/V.2.0/images/Sevan_Dilijan/Sevan.jpg"
+      />
+    </div>
+  </li>
+  <li
+    className="undefined undefined"
+    style={
+      Object {
+        "animationDuration": "2s",
+      }
+    }
+  >
+    <div>
+      <img
+        alt=""
+        src="https://www.armeniatravel.am/wcit/V.2.0/images/Amberd/Amberd_day_4.jpg"
+      />
+    </div>
+  </li>
+  <li
+    className="undefined undefined"
+    style={
+      Object {
+        "animationDuration": "2s",
+      }
+    }
+  >
+    <div>
+      <img
+        alt=""
+        src="https://www.armeniatravel.am/wcit/V.2.0/images/Amberd/Amberd_2.jpg"
+      />
+    </div>
+  </li>
+  <li
+    data-testid="slideRightButton"
+    onClick={[Function]}
+  >
+     
+    &gt;
+     
+  </li>
+</ul>
+`;
